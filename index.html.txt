@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yomna Elgohary | Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Yomna Elgohary, Computer Engineering student and full-stack developer (React, TypeScript, Node.js, FastAPI, ASP.NET Core).">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --text: #1c1f26;
+    --muted: #5d6472;
+    --line: #e4e4de;
+    --accent: #2f5bea;
+    --accent-soft: #e8eefe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12141a;
+      --surface: #1a1d25;
+      --text: #eceef3;
+      --muted: #a2a9b8;
+      --line: #2b2f3a;
+      --accent: #8aa6ff;
+      --accent-soft: #232a45;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  header.top strong { font-size: 15px; }
+  nav a { margin-left: 20px; color: var(--muted); font-size: 14px; }
+  nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding: 72px 0 48px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .hero .role { font-size: 20px; color: var(--accent); margin: 0 0 16px; font-weight: 600; }
+  .hero p.lead { max-width: 640px; color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #12141a; } }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 24px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filters button {
+    font: inherit; font-size: 14px; cursor: pointer;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+  }
+  .filters button.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px; display: flex; flex-direction: column;
+  }
+  .card.hide { display: none; }
+  .card h3 { margin: 0 0 4px; font-size: 18px; }
+  .card .kind { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 10px; }
+  .card p { margin: 0 0 14px; font-size: 14.5px; color: var(--muted); flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tags span { font-size: 12px; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .links { display: flex; gap: 16px; font-size: 14px; font-weight: 600; }
+  .featured { border-color: var(--accent); }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+  .skills div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .skills h4 { margin: 0 0 8px; font-size: 14px; }
+  .skills p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  @media (max-width: 560px) { nav a { margin-left: 12px; } .hero { padding-top: 44px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <strong>Yomna Elgohary</strong>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>Yomna Elgohary</h1>
+      <p class="role">Full-Stack Developer</p>
+      <p class="lead">
+        Computer Engineering student at the German University in Cairo. I build REST APIs and
+        React/TypeScript front ends with Node.js, Python and C#/.NET, and care about secure
+        authentication, clean code and Agile teamwork.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="cv.pdf">Download CV</a>
+        <a class="btn" href="https://github.com/yomnaelgohary">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yomna-elgohary/">LinkedIn</a>
+        <a class="btn" href="mailto:yomnaelgohary011@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="sub">Selected work, with source code and live demos where available.</p>
+
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">All</button>
+        <button data-f="fullstack">Full-stack</button>
+        <button data-f="ai">AI</button>
+        <button data-f="testing">Testing</button>
+        <button data-f="systems">Systems</button>
+      </div>
+
+      <div class="grid" id="grid">
+
+        <article class="card featured" data-cat="fullstack">
+          <h3>Planit-2</h3>
+          <div class="kind">Team project, MERN</div>
+          <p>Campus event management and booking platform with seven user roles. REST API with JWT/Argon2
+             authentication and role-based access, Stripe payments with a wallet refund system, scheduled
+             email jobs, and QR, PDF and Excel generation. Delivered in Scrum sprints with Jira and GitHub pull requests.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>React</span><span>TypeScript</span><span>Stripe</span></div>
+          <div class="links"><a href="https://github.com/Advanced-Computer-Lab-2025/Planit-2">Source</a></div>
+        </article>
+
+        <article class="card featured" data-cat="ai fullstack">
+          <h3>VisionBlocks AI Co-Pilot</h3>
+          <div class="kind">Bachelor thesis, graded A+</div>
+          <p>Agentic AI tutor "Neurabuddy" for a block-based machine learning platform. A Next.js/React frontend
+             talks to a FastAPI backend, with request deduplication, tiered hint escalation, grounded chat,
+             retries and a deterministic fallback. Evaluated in a 30-participant study.</p>
+          <div class="tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Python</span><span>LLMs</span></div>
+          <div class="links">
+            <a href="https://github.com/yomnaelgohary/AI-VisionBlocks">Source</a>
+            <a href="https://aivisionblockss.vercel.app">Live demo</a>
+          </div>
+        </article>
+
+        <article class="card featured" data-cat="fullstack">
+          <h3>Mini POS System</h3>
+          <div class="kind">BMW Egypt / Global Auto internship</div>
+          <p>Multi-role point-of-sale app covering sales, procurement and warehousing, with partial invoicing,
+             credit notes, weighted-average costing, transactions, SQL trigger audit tables, and SSRS and Power BI reporting.</p>
+          <div class="tags"><span>ASP.NET Core MVC</span><span>C#</span><span>EF Core</span><span>SQL Server</span><span>Power BI</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/Mini-POS-System">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="fullstack">
+          <h3>Synapse</h3>
+          <div class="kind">Front-end prototype</div>
+          <p>AI-assisted exam assessment prototype for primary schools, with separate teacher, student and parent
+             views and an English/German interface. OCR and grading are simulated with demo data.</p>
+          <div class="tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>shadcn/ui</span></div>
+          <div class="links">
+            <a href="https://github.com/yomnaelgohary/synapse-frontend-prototype">Source</a>
+            <a href="https://synapse-frontend-prototype.vercel.app">Live demo</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="fullstack">
+          <h3>Telecom Management System</h3>
+          <div class="kind">Full-stack, database course</div>
+          <p>Customer management for a telecom provider, with an admin portal and a customer portal for plans,
+             usage, vouchers and recharges. Built on SQL Server stored procedures, functions and views.</p>
+          <div class="tags"><span>SQL Server</span><span>T-SQL</span><span>ASP.NET</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/Telecom-Management-System---Full-Stack">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="fullstack">
+          <h3>Depuggers</h3>
+          <div class="kind">Front-end prototype, software engineering course</div>
+          <p>Role-based internship management system prototype for students, companies, faculty and an admin
+             office, with a React Router front end and mock data.</p>
+          <div class="tags"><span>React</span><span>JavaScript</span><span>React Router</span><span>CSS</span></div>
+          <div class="links">
+            <a href="https://github.com/yomnaelgohary/Depuggers">Source</a>
+            <a href="https://spiffy-puffpuff-9a1aad.netlify.app/">Live demo</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="testing">
+          <h3>Demo Blaze Testing Lifecycle</h3>
+          <div class="kind">Sprints x Microsoft, Software Testing</div>
+          <p>ISTQB-aligned testing project for an e-commerce site: user stories, test cases, manual functional and
+             usability testing, defect logs, release report and a regression strategy, migrated to Jira and Xray with traceability.</p>
+          <div class="tags"><span>ISTQB</span><span>Jira</span><span>Xray</span><span>Manual testing</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/BlazeDemo-Full-Testing-Lifecycle-With-JIRA-Xray">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <h3>Tomasulo Simulator</h3>
+          <div class="kind">Computer architecture</div>
+          <p>Cycle-by-cycle simulator of the Tomasulo algorithm with configurable latencies, reservation stations,
+             a cache and Common Data Bus arbitration, and a JavaFX interface.</p>
+          <div class="tags"><span>Java</span><span>JavaFX</span><span>Maven</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/tomasulo-simulator">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <h3>Attack on Titan: Utopia</h3>
+          <div class="kind">Game, OOP course</div>
+          <p>Tower defense game with waves of Titans, multiple weapons and difficulty modes. Uses MVC, Factory and
+             Observer patterns, with game data loaded from CSV files.</p>
+          <div class="tags"><span>Java</span><span>JavaFX</span><span>OOP</span><span>Design patterns</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/Attack-on-Titans-Game">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <h3>MIPS Pipeline Simulator</h3>
+          <div class="kind">Computer architecture</div>
+          <p>Simulator of a MIPS processor pipeline. See the repository for details.</p>
+          <div class="tags"><span>MIPS</span><span>Pipelining</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/MIPS-Pipeline-Simulator">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <h3>Thread Scheduling Performance Analysis</h3>
+          <div class="kind">Operating systems</div>
+          <p>Performance analysis of thread scheduling approaches. See the repository for details.</p>
+          <div class="tags"><span>Operating systems</span><span>Scheduling</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/Thread-Scheduling-Performance-Analysis-OS">Source</a></div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <h3>OS Schedulers</h3>
+          <div class="kind">Operating systems</div>
+          <p>Implementations of operating system scheduling algorithms. See the repository for details.</p>
+          <div class="tags"><span>Operating systems</span><span>Scheduling</span></div>
+          <div class="links"><a href="https://github.com/yomnaelgohary/OS-Schedulers">Source</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">Tools I use most.</p>
+      <div class="skills">
+        <div><h4>Languages</h4><p>JavaScript, TypeScript, Python, Java, C#, C, SQL</p></div>
+        <div><h4>Front-end</h4><p>React, Next.js, HTML, CSS, Tailwind CSS, Vite</p></div>
+        <div><h4>Back-end and APIs</h4><p>Node.js, Express, FastAPI, ASP.NET Core, REST APIs, JWT authentication</p></div>
+        <div><h4>Databases</h4><p>MongoDB/Mongoose, SQL Server, EF Core</p></div>
+        <div><h4>DevOps and testing</h4><p>Git, GitHub, Linux, Jira/Xray, Postman, Docker and CI/CD fundamentals, manual testing (ISTQB)</p></div>
+        <div><h4>Ways of working</h4><p>Agile/Scrum, pull requests, technical documentation</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="sub">I'm looking for a graduate full-stack developer role. Get in touch:</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:yomnaelgohary011@gmail.com">yomnaelgohary011@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/yomna-elgohary/">LinkedIn</a>
+        <a class="btn" href="https://github.com/yomnaelgohary">GitHub</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Yomna Elgohary, Cairo, Egypt</div>
+</footer>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('#filters button');
+    var cards = document.querySelectorAll('#grid .card');
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-f');
+        buttons.forEach(function (x) { x.classList.toggle('on', x === b); });
+        cards.forEach(function (c) {
+          var cats = c.getAttribute('data-cat').split(' ');
+          c.classList.toggle('hide', f !== 'all' && cats.indexOf(f) === -1);
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
